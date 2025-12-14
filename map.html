@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Bloom Map </title>
+
+  <!-- 기존 스타일 -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="map.js" defer></script>
+
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+  </script>
+</head>
+
+<body>
+
+  <!-- below is the header section -->
+  <header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
+            <img src="imgs/BloomingToronto.png" alt="Blooming Toronto logo" class="site-logo__img">
+          </a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html" class="active">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- below is the map section -->
+  <main class="map-page">
+    <div class="layout-wrapper">
+   
+    <h1 class="page-title">Bloom Map</h1>
+    <p>Explore flowers blooming across Toronto</p>
+
+
+    
+    <!-- 필터칩 영역 -->
+    <section class="filters">
+
+
+        <!-- 🔍 Flower search -->
+        <div class="filter-group">
+          <label for="flowerSearch" class="filter-label">Find a flower</label>
+          <input
+            type="search"
+            id="flowerSearch"
+            placeholder="Search flowers (e.g. cherry blossom)"
+          />
+        </div>
+      
+        <!-- 기존 Colours / Season / Region -->
+   
+      
+      <!-- Colours -->
+      <div class="filter-group">
+        <p class="filter-label">Colours</p>
+        <div class="filter-chips">
+          <button type="button" class="chip" data-filter-type="colour" data-filter-value="pink">Red</button>
+          <button type="button" class="chip" data-filter-type="colour" data-filter-value="yellow">Yellow</button>
+          <button type="button" class="chip" data-filter-type="colour" data-filter-value="white">White</button>
+          <button type="button" class="chip" data-filter-type="colour" data-filter-value="white">Multicolour</button>
+          <button type="button" class="chip" data-filter-type="colour" data-filter-value="white">White</button>
+          <button type="button" class="chip" data-filter-type="colour" data-filter-value="purple">Purple</button>
+        </div>
+      </div>
+
+      <!-- Seasons -->
+      <div class="filter-group">
+        <p class="filter-label">Season</p>
+        <div class="filter-chips">
+          <button type="button" class="chip" data-filter-type="season" data-filter-value="spring">Winter</button>
+          <button type="button" class="chip" data-filter-type="season" data-filter-value="spring">Spring</button>
+          <button type="button" class="chip" data-filter-type="season" data-filter-value="summer">Summer</button>
+          <button type="button" class="chip" data-filter-type="season" data-filter-value="fall">Fall</button>
+        </div>
+      </div>
+
+      <!-- Region -->
+      <div class="filter-group">
+        <p class="filter-label">Region</p>
+        <div class="filter-chips">
+          <button class="chip" data-filter-type="region" data-filter-value="downtown">Downtown</button>
+          <button class="chip" data-filter-type="region" data-filter-value="midtown">Midtown</button>
+          <button class="chip" data-filter-type="region" data-filter-value="west">Uptown</button>
+          <button class="chip" data-filter-type="region" data-filter-value="east">Etobicoke</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="map-wrapper">
+      <!-- 실제 인터랙티브 지도가 들어가는 div -->
+      <div id="bloom-map"></div>
+    </div>
+    </div>
+  </main>
+
+
+  <!-- Footer (same as main page) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="imgs/BloomingToronto.png" alt="bloomingToronto-logo" class="logo-image">
+      </div>
+
+      <nav class="footer-nav">
+        <ul class="footer-col">
+          <li class="footer-col-title">Explore</li>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
+        </ul>
+        <ul class="footer-col">
+          <li class="footer-col-title">General</li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Companion Garden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="companion-garden.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
+        <img src="imgs/BloomingToronto.png" alt="Blooming Toronto logo" class="site-logo__img">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html" class="active">Companion Garden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="page">
+    <div class="layout-wrapper">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><span>Companion Garden</span></li>
+        </ol>
+      </nav>
+
+      <section class="companion-hero" aria-labelledby="companion-title">
+        <header class="companion-hero__header">
+          <h1 id="companion-title">Explore companion planting ideas</h1>
+          <p class="helper-text">
+            Pick one or more flowers to see their compatibility and companion suggestions.
+          </p>
+        </header>
+
+        <section class="companion-panel" aria-label="Selected flowers and compatibility">
+          <div class="companion-panel__frame">
+
+            <div id="panelSelected" class="companion-panel__selection" hidden>
+              <div class="selected-main">
+                <h2 class="section-label">Selected flower</h2>
+                <div id="mainCard" class="selected-main__card"></div>
+              </div>
+
+              <div class="selected-companions">
+                <h2 class="section-label">Companions</h2>
+                <div id="panelCompanions" class="selected-companions__grid"></div>
+              </div>
+            </div>
+          </div>
+
+          <p id="compatibilityLabel" class="compatibility-indicator"></p>
+
+          <details class="compatibility-details">
+            <summary>Why these flowers work together</summary>
+            <p id="compatibilityText">
+              Select two or more flowers to see planting notes and tips.
+            </p>
+          </details>
+        </section>
+      </section>
+
+      <section class="companion-strip" aria-labelledby="current-group-label">
+        <h2 id="current-group-label" class="section-label">Companion group</h2>
+        <p class="helper-text">Flowers currently selected as a group.</p>
+        <div id="selectedStrip" class="card-row"></div>
+      </section>
+
+      <section class="selector-section" aria-labelledby="select-flowers-label">
+        <div class="selector-header">
+          <h2 id="select-flowers-label" class="section-label">Select flowers</h2>
+
+          <form class="search-form" role="search" onsubmit="return false;">
+            <label class="sr-only" for="flowerSearch">Search by name, colour, or season</label>
+            <div class="search-input-wrapper">
+              <input
+                type="search"
+                id="flowerSearch"
+                placeholder="Search by name, colour, or season"
+                autocomplete="off"
+              />
+              <button type="button" id="clearSearch" class="search-clear" aria-label="Clear search">×</button>
+              <span class="search-icon" aria-hidden="true">🔍</span>
+            </div>
+          </form>
+        </div>
+
+        <p class="helper-text">
+          Tap a card to add or remove it from your companion garden (up to four flowers).
+        </p>
+
+        <div id="flowerList" class="card-row" aria-live="polite"></div>
+
+        <p id="noResults" class="no-results" hidden>
+          No flowers match that search. Try a different name, colour, or season.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="imgs/BloomingToronto.png" alt="bloomingToronto-logo" class="logo-image">
+      </div>
+
+      <nav class="footer-nav">
+        <ul class="footer-col">
+          <li class="footer-col-title">Explore</li>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
+        </ul>
+
+        <ul class="footer-col">
+          <li class="footer-col-title">General</li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

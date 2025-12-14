@@ -4,20 +4,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BLOOMING TORONTO</title>
+    <title>BLOOMING TORONTO</title>  <!-- title shown on the browser tab -->
+
+    <link rel="stylesheet" href="style.css" /> <!-- main stylesheet for the whole site -->
   </head>  
-<!--
-<body>
-    <h1>Blooming Toronto</h1>
- 
-        <img src="imgs/IMG_0652.jpg"> 
-    <h2>All about bloomings in Toronto</h2>
-        <p></p>
-    <div>
-        <a href="about.html">About</a>
-    </div>
-  </body>
--->
 
 
 <!--  Below is my body section, where all my content displays-->
@@ -25,14 +15,16 @@
   <!-- below is the header section -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="index.html">BLOOMING TORONTO</a>
+         <!-- below is the site logo that links back to home -->
+      <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
+        <img src="imgs/BloomingToronto.png" alt="Blooming Toronto" class="site-logo__img">
+      </a>
+          <!-- below is the main navigation menu -->
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="#flowers">Flowers</a></li>
-          <li><a href="#meanings">Meanings</a></li>
-          <li><a href="#seasons">Seasons</a></li>
-          <li><a href="#bloom-map">Bloom Map</a></li>
-          <li><a href="#companion">Companion Garden</a></li>
+          <li><a href="flowers.html" class="active">Flowers</a></li> 
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
         </ul>
       </nav>
     </div>
@@ -40,96 +32,72 @@
 
 <!-- below is my hero section -->
   <section class="hero">
-    <img src="imgs/IMG_0652.jpg" alt="Light purple flowers background" />
+    <!-- below is the large background / hero image -->
+    <img src="imgs/IMG_0571.jpg" />
+  <!-- main site title shown on top of hero image -->
     <h1 class="hero-title">
       <span class="line1">BLOOMING</span>
       <span class="line2">TORONTO</span>
     </h1>
   </section>
 
-    <div class="intro-blurb">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-      <p><a class="btn" href="#explore">Explore Now</a></p>
-    </div>
+    <div class="intro">
 
 <!-- below is my main section -->
   <main>
-  <!-- below is the flowers section-->
-    <section class="featured-flowers" id="featuredflowers" aria-labelledby="featured-flowers-title">
+  <!-- below is the featured flowers section-->
+    <section class="featured-flowers" id="featuredflowers">
         <div class="featured-flowers-media">
-        <figure>
-            <img src="imgs/IMG_0652.jpg" alt="Blue pansies close-up" />
-        </figure>
+            <img src="imgs/IMG_0578.jpg" />
         </div>
-    
+        <!--  below is the text content for featured flowers -->
         <div class="featured-flowers-content">
         <h2 id="featured-flowers-title">Discover Seasonal Blooms</h2>
+        <!-- short description of what users can explore -->
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Browse individual flower profiles to learn about growing seasons, sunlight needs, companion pairings, and whether each plant is pet-safe or toxic.
         </p>
+        <!-- setting a button that leads to flowers page -->
+        <p><a class="button" href="flowers.html">Explore Now</a></p>
         </div>
     </section>
     
 
 <!-- below is the bloom map section -->
-    <section class="bloommap" id="bloom-map" aria-labelledby="bloom-map-title">
+    <section class="bloommap" id="bloom-map">
+        <!-- below is the map preview image -->
         <div class="bloom-map-media">
-          <img src="imgs/toronto-map-placeholder.jpg" alt="Map of Toronto with bloom spots" />
+          <img src="imgs/mappg.png" alt="Map of Toronto with bloom spots"/>
         </div>
+        <!-- text content for bloom map -->
         <div class="bloom-map-content">
           <h2 id="bloom-map-title">Find Blooms Near You</h2>
+          <!-- short explanation of the map feature -->
           <p>Explore seasonal flowers blooming around Toronto using our interactive map.</p>
-          <p><a class="btn" href="map.html">Open Bloom Map</a></p>
+          <!-- button that leads to the map page -->
+          <p><a class="button" href="map.html">Open Bloom Map</a></p>
         </div>
       </section>
-
+</div>
   </main>
 
   <!-- below is the footer section -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
+      <!-- footer logo / branding -->
       <div class="footer-brand">
-        <strong>BLOOMING<br/>TORONTO</strong>
+        <img src="imgs/BloomingToronto.png" alt="bloomingToronto-logo" class="logo-image">
       </div>
 
-      <!-- setting the footers -->>
-      <nav class="footer-nav" aria-label="Footer">
-        <ul class="footer-col">
-          <li class="footer-col-title">Flowers</li>
-          <li><a href="#">Roses</a></li>
-          <li><a href="#">Lilies</a></li>
-          <li><a href="#">Sunflowers</a></li>
-          <li><a href="#">Orchids</a></li>
-        </ul>
-
-        <ul class="footer-col">
-          <li class="footer-col-title">Meanings</li>
-          <li><a href="#">Romance</a></li>
-          <li><a href="#">Friendship</a></li>
-          <li><a href="#">Remembrance</a></li>
-          <li><a href="#">Celebration</a></li>
-        </ul>
-
-        <ul class="footer-col">
-          <li class="footer-col-title">Seasons</li>
-          <li><a href="#">Summer</a></li>
-          <li><a href="#">Fall</a></li>
-          <li><a href="#">Winter</a></li>
-          <li><a href="#">Spring</a></li>
-        </ul>
-
+      <nav class="footer-nav">
+      <!-- first column -->
         <ul class="footer-col">
           <li class="footer-col-title">Explore</li>
-          <li><a href="#bloom-map">Bloom Map</a></li>
-          <li><a href="#companion">Companion Garden</a></li>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
         </ul>
-
+        <!-- second column -->
         <ul class="footer-col">
           <li class="footer-col-title">General</li>
           <li><a href="about.html">About Us</a></li>

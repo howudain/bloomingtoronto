@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- page title -->
+  <title>Flowers</title>
+  <link rel="stylesheet" href="style.css" /> <!-- connecting to main stylesheet -->
+  <!-- connecting JS file for filtering and interactions -->
+  <script src="flowers.js" defer></script>
+</head>
+
+<body>
+  <!-- skip link for keyboard and screen reader users -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- below is the header section -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+        <!-- logo linking back to homepage -->
+        <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
+            <img src="imgs/BloomingToronto.png" alt="Blooming Toronto logo" class="site-logo__img">
+          </a>
+      <!-- below is the main navigation -->
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="flowers.html" class="active">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<!-- below is the main content -->
+  <main id="main-content" class="flowers-page">
+    <div class="layout-wrapper">
+    <!-- setting space for fixed header -->
+    <div style="margin-top:120px;"></div>
+    <!-- page intro text -->
+    <p>Explore flowers blooming across Toronto</p>
+
+    <!-- below is filter bar-->
+    <div class="flower-filter-bar">
+        
+        <!-- below is the flower type filter -->
+        <div class="filter-chip">
+          Flowers ▾
+          <ul class="filter-menu">
+            <li><a href="#">Roses</a></li>
+            <li><a href="#">Lilies</a></li>
+            <li><a href="#">Sunflowers</a></li>
+            <li><a href="#">Orchids</a></li>
+          </ul>
+        </div>
+        <!-- below is the meaning filter -->
+        <div class="filter-chip">
+          Meanings ▾
+          <ul class="filter-menu">
+            <li><a href="#">Romance</a></li>
+            <li><a href="#">Friendship</a></li>
+            <li><a href="#">Remembrance</a></li>
+          </ul>
+        </div>
+
+        <!-- below is the season filter -->
+        <div class="filter-chip">
+          Seasons ▾
+          <ul class="filter-menu">
+            <li><a href="#">Spring</a></li>
+            <li><a href="#">Summer</a></li>
+            <li><a href="#">Fall</a></li>
+            <li><a href="#">Winter</a></li>
+          </ul>
+        </div>
+              
+        <!-- below is the colour filter -->
+        <div class="filter-chip">
+          Colours ▾
+          <ul class="filter-menu">
+            <li><a href="#">Red</a></li>
+            <li><a href="#">Pink</a></li>
+            <li><a href="#">Yellow</a></li>
+            <li><a href="#">White</a></li>
+          </ul>
+        </div>
+              
+        <!-- below is the use / purpose filter -->
+        <div class="filter-chip">
+          Use/Purpose ▾
+          <ul class="filter-menu">
+            <li><a href="#">Gift</a></li>
+            <li><a href="#">Medical</a></li>
+            <li><a href="#">Gardening</a></li>
+          </ul>
+        </div>
+              
+        <!-- below is the difficulty filter -->
+        <div class="filter-chip">
+          Difficulty ▾
+          <ul class="filter-menu">
+            <li><a href="#">Easy</a></li>
+            <li><a href="#">Medium</a></li>
+            <li><a href="#">Hard</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    <!-- below is the gallery Grid -->
+    <div class="gallery" aria-live="polite">
+              
+      <!-- single flower with datas used for filtering -->
+      <div class="item"
+      data-flowers="tulips"
+      data-seasons="spring"
+      data-colours="pink"
+      data-meanings="romance"
+      data-use="garden"
+      data-difficulty="easy">
+      <!-- link to flower detail page with query parameter -->
+      <a href="flower-detail.html?name=doubleTulip">
+        <img src="imgs/IMG_0566.jpg" alt="Double Tulip" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="pansies"
+      data-seasons="spring"
+      data-colours="purple"
+      data-meanings="friendship"
+      data-use="garden"
+      data-difficulty="easy">
+      <a href="flower-detail.html?name=pansyPurple">
+        <img src="imgs/IMG_0567.jpg" alt="Purple Pansy" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="azaleas"
+      data-seasons="spring"
+      data-colours="white"
+      data-meanings="remembrance"
+      data-use="garden"
+      data-difficulty="medium">
+      <a href="flower-detail.html?name=whiteAzalea">
+        <img src="imgs/IMG_0568.jpg" alt="White Azalea" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="blue flowers"
+      data-seasons="spring"
+      data-colours="blue"
+      data-meanings="friendship"
+      data-use="garden"
+      data-difficulty="easy">
+      <a href="flower-detail.html?name=blueStarFlower">
+        <img src="imgs/IMG_0569.jpg" alt="Blue Star Flower" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="pansies"
+      data-seasons="spring"
+      data-colours="pink"
+      data-meanings="friendship"
+      data-use="garden"
+      data-difficulty="easy">
+      <a href="flower-detail.html?name=pansyLight">
+        <img src="imgs/IMG_0571.jpg" alt="Light Pansy" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="lisianthus"
+      data-seasons="summer"
+      data-colours="purple"
+      data-meanings="romance"
+      data-use="gift"
+      data-difficulty="medium">
+      <a href="flower-detail.html?name=lisianthusPurple">
+        <img src="imgs/IMG_0572.jpg" alt="Purple Lisianthus" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="asters"
+      data-seasons="fall"
+      data-colours="purple"
+      data-meanings="remembrance"
+      data-use="garden"
+      data-difficulty="easy">
+      <a href="flower-detail.html?name=purpleAster">
+        <img src="imgs/IMG_0575.jpg" alt="Purple Aster" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="phlox"
+      data-seasons="summer"
+      data-colours="white"
+      data-meanings="friendship"
+      data-use="garden"
+      data-difficulty="easy">
+      <a href="flower-detail.html?name=whitePhlox">
+        <img src="imgs/IMG_0576.jpg" alt="White Phlox" />
+      </a>
+    </div>
+    
+    <div class="item"
+      data-flowers="coreopsis"
+      data-seasons="summer"
+      data-colours="yellow"
+      data-meanings="friendship"
+      data-use="garden"
+      data-difficulty="easy">
+      <a href="flower-detail.html?name=coreopsisYellow">
+        <img src="imgs/IMG_0577.jpg" alt="Yellow Coreopsis" />
+      </a>
+    </div>
+    </div>
+    </div>
+  </main>
+
+  <!-- below is the footer section -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <!-- footer logo / branding -->
+      <div class="footer-brand">
+        <img src="imgs/BloomingToronto.png" alt="bloomingToronto-logo" class="logo-image">
+      </div>
+
+      <nav class="footer-nav">
+        <!-- first column -->
+          <ul class="footer-col">
+            <li class="footer-col-title">Explore</li>
+            <li><a href="flowers.html">Flowers</a></li>
+            <li><a href="map.html">Bloom Map</a></li>
+            <li><a href="companion-garden.html">Companion Garden</a></li>
+          </ul>
+        <!-- second column -->
+        <ul class="footer-col">
+          <li class="footer-col-title">General</li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
