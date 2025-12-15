@@ -239,6 +239,58 @@
     border-radius: 32px;
   }
   
+
+  /* Mobile: stack image on top, text below (keep functionality unchanged) */
+@media (max-width: 900px) {
+  /* Featured section */
+  .featured-flowers {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  .featured-flowers-media,
+  .featured-flowers-content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .featured-flowers-media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Bloom map section */
+  .bloommap {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  .bloom-map-media,
+  .bloom-map-content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .bloom-map-media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+}
+
   /* Featured flowers section */
   
   .featured-flowers {
@@ -397,21 +449,59 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
-
-.gallery .item {
-  display: block;
+/* --- Flowers filtering: ensure hidden items actually disappear --- */
+.gallery .item.hide {
+  display: none !important;
 }
 
-.gallery .item.hide {
-  display: none;
+/* --- No results message --- */
+.no-results {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+/* --- Gallery hover: grayscale + name overlay --- */
+.gallery .item {
+  position: relative;
 }
 
 .gallery .item img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 16px;
   display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 200ms ease;
+}
+
+/* overlay text */
+.gallery .item::after {
+  content: attr(data-title);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 12px;
+
+  opacity: 0;
+  transition: opacity 200ms ease;
+
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+
+  pointer-events: none;
+}
+
+/* hover + keyboard focus */
+.gallery .item:hover img,
+.gallery .item:focus-within img {
+  filter: grayscale(1);
+}
+
+.gallery .item:hover::after,
+.gallery .item:focus-within::after {
+  opacity: 1;
 }
 
 /* laptop */
@@ -430,7 +520,7 @@
  
 
 
-/* flower detaillllllllll*/
+/* flower detail*/
 
 /* Flower detail page wrapper */
 .flower-detail-page {
@@ -1428,6 +1518,21 @@
     display: block;
   }
   
+}
+
+/* Leaflet: custom photo markers */
+.leaflet-marker-icon.flower-photo-marker {
+  width: 44px !important;
+  height: 44px !important;
+
+  border-radius: 14px;            
+   
+  /* border-radius: 50%; */
+
+  border: 2px solid #f3e7db;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+  object-fit: cover;              
 }
 
 
