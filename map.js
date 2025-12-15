@@ -1,3 +1,6 @@
+/* used chatGPT as a reference for some parts of this project */
+
+
 // Map init- set Toronto as the default center point
 const toronto = [43.65107, -79.347015];
 

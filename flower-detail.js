@@ -1,3 +1,6 @@
+/* used chatGPT as a reference for some parts of this project */
+
+
 /* setting filter bar logic - 
 clicking a filter option redirects to flowers.html,
 selected filters are passed through URL query parameters

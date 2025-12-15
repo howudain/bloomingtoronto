@@ -1,3 +1,6 @@
+/* used chatGPT as a reference for some parts of this project */
+
+
 // setting flowers dropdown filters, click to open dropdown
 // show selected value on chip, filter gallery items based on selection
 

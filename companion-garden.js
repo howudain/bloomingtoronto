@@ -1,3 +1,4 @@
+/* used chatGPT as a reference for some parts of this project */
 
 // setting lower dataset - main data source for the Companion Garden
 // Each object represents one flower that can be selected by the user
