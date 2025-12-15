@@ -29,6 +29,7 @@
         <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
             <img src="imgs/BloomingToronto.png" alt="Blooming Toronto logo" class="site-logo__img">
           </a>
+
       <nav class="site-nav">
         <ul>
           <li><a href="flowers.html">Flowers</a></li>
@@ -43,14 +44,17 @@
   <!-- below is the map section -->
   <main class="map-page">
     <div class="layout-wrapper">
+   
+    <h1 class="page-title">Bloom Map</h1>
+
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
           <li><a href="index.html">Home</a></li>
-          <li><span>Bloom Map</span></li>
+          <li>Bloom Map</li>
         </ol>
       </nav>
-      <h1 class="page-title">Bloom Map</h1>
-      <p class="page-subtitle">Explore flowers blooming across Toronto</p>
+      
+    <p>Explore flowers blooming across Toronto</p>
 
 
     
@@ -59,13 +63,27 @@
 
 
         <!-- 🔍 Flower search -->
-        <div class="filter-group">
-          <label for="flowerSearch" class="filter-label">Find a flower</label>
-          <input
-            type="search"
-            id="flowerSearch"
-            placeholder="Search flowers (e.g. cherry blossom)"
-          />
+        <div class="selector-header">
+          <form class="search-form" role="search">
+            <div class="search-input-wrapper">
+              <span class="search-icon">🔍</span>
+        
+              <input
+                id="flowerSearch"
+                type="search"
+                placeholder="Search a flower by name"
+                aria-label="Search flowers"
+              />
+        
+              <button
+                type="button"
+                class="search-clear"
+                aria-label="Clear search"
+                onclick="document.getElementById('flowerSearch').value=''; document.getElementById('flowerSearch').dispatchEvent(new Event('input'));">
+                ×
+              </button>
+            </div>
+          </form>
         </div>
       
         <!-- 기존 Colours / Season / Region -->
