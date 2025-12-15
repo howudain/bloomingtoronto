@@ -147,7 +147,33 @@ const FLOWERS = {
     palette: "white, lavender, pale yellow, and soft purple varieties.",
     tips: "Ideal for pots and window boxes. Deadhead for longer blooming."
   },
-
+    roseLight: {
+    displayName: "Light Rose",
+    image: "imgs/IMG_0578.jpg",
+    symbolism: [
+      "Grace, elegance, and gentle love",
+      "Often associated with appreciation and quiet romance"
+    ],
+    season: "Blooms from early summer to early fall",
+    petSafety: "Non-toxic to cats and dogs, but thorns may cause injury.",
+    scent: "Light, soft floral fragrance",
+    palette: "soft blush pink, cream, and pale peach tones",
+    tips: "Thrives in full sun. Regular pruning and good air circulation help maintain healthy blooms."
+  },
+  roseRed: {
+    displayName: "Red Rose",
+    image: "imgs/IMG_0579.jpg",
+    symbolism: [
+      "Love, passion, and strong emotional expression",
+      "Traditionally used to convey deep affection"
+    ],
+    season: "Blooms from early summer through late summer",
+    petSafety: "Non-toxic to cats and dogs, but thorns may cause injury.",
+    scent: "Moderate to strong classic rose fragrance",
+    palette: "deep red, crimson, and vibrant pink shades",
+    tips: "Prefers full sun and nutrient-rich soil. Remove spent blooms to encourage continuous flowering."
+  },
+  
   lisianthusPurple: {
     displayName: "Lisianthus",
     image: "imgs/IMG_0572.jpg",

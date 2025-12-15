@@ -29,7 +29,7 @@ const flowers = [
     id: "white-azalea",
     image: "imgs/IMG_0568.jpg",
 
-  name: "White Azalea",
+  name: "Azalea",
   color: "white",
   season: "Spring",
   description: "Ornamental flowering shrub with dense spring blooms.",
@@ -41,7 +41,7 @@ const flowers = [
     id: "blue-star-flower",
     image: "imgs/IMG_0569.jpg",
 
-    name: "Blue Star Flower",
+    name: "Oxypetalum",
     color: "blue",
     season: "Late Spring, Summer",
     description: "Star-shaped blue flowers used as soft garden accents.",
@@ -53,7 +53,7 @@ const flowers = [
     id: "pansy-light",
     image: "imgs/IMG_0571.jpg",
 
-    name: "Light Pansy",
+    name: "Pansy",
     color: "white, purple",
     season: "Spring, Fall",
     description: "Soft-colored pansy variety suitable for cool seasons.",
@@ -65,7 +65,7 @@ const flowers = [
     id: "lisianthus-purple",
     image: "imgs/IMG_0572.jpg",
 
-    name: "Purple Lisianthus",
+    name: "Lisianthus",
     color: "purple",
     season: "Summer",
     description: "Rose-like blooms often used in decorative plantings.",
@@ -77,7 +77,7 @@ const flowers = [
     id: "aster-purple",
     image: "imgs/IMG_0575.jpg",
 
-    name: "Purple Aster",
+    name: "Aster",
     color: "purple",
     season: "Late Summer, Fall",
     description: "Pollinator-friendly perennial commonly found in Ontario.",
@@ -89,7 +89,7 @@ const flowers = [
     id: "white-phlox",
     image: "imgs/IMG_0576.jpg",
 
-    name: "White Phlox",
+    name: "Phlox",
     color: "white",
     season: "Summer",
     description: "Fragrant clusters of flowers that bloom mid-summer.",
@@ -101,13 +101,25 @@ const flowers = [
     id: "coreopsis-yellow",
     image: "imgs/IMG_0577.jpg",
 
-    name: "Yellow Coreopsis",
+    name: "Coreopsis",
     color: "yellow",
     season: "Summer",
     description: "Long-blooming wildflower popular in pollinator gardens.",
     toxicity: "Non-toxic to cats and dogs",
     bestFor: "Wildflower gardens, borders",
     companions: ["aster", "salvia"]
+  },
+  {
+    id: "rose-light",
+    image: "imgs/IMG_0578.jpg",
+  
+    name: "Rose",
+    color: "pink, red",
+    season: "Summer",
+    description: "Soft-toned garden rose with repeated blooms throughout summer.",
+    toxicity: "Non-toxic to cats and dogs",
+    bestFor: "Formal gardens, borders, landscape beds",
+    companions: ["lavender", "salvia", "phlox"]
   }
 ];
 
