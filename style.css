@@ -1706,7 +1706,7 @@ object-fit: cover;
 }
 
 .flowers-page .page-subtitle{
-  margin-bottom: 8px; 
+  margin-bottom: 7px; 
 }
 
 /* Prevent layout shift when scrollbar appears/disappears */
@@ -1717,4 +1717,70 @@ html{
 /* Fallback for browsers without scrollbar-gutter */
 body{
   overflow-y: scroll;
+}
+
+
+@media (max-width: 768px) {
+  /* Ensure the home sections flow top-to-bottom on mobile */
+  .intro > main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Force the section order: Discover -> Bloom Map -> Companion */
+  #featuredflowers { order: 1; }
+  #bloom-map      { order: 2; }
+
+  /* Optional: keep companion section last (if it exists on the page) */
+  #companion-planting,
+  #companion-garden,
+  .companion-planting {
+    order: 3;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on small screens */
+  html, body { overflow-x: hidden; }
+
+  /* Reduce the top offset caused by the fixed header */
+  .flowers-page { padding-top: 96px; }
+
+  /* Make the title responsive and allow wrapping */
+  .flowers-page .page-title,
+  .flowers-page h1 {
+    font-size: clamp(28px, 8vw, 40px);
+    line-height: 1.1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Make filter chips wrap instead of overflowing */
+  .flowers-page .filter-chips,
+  .flowers-page .filters,
+  .flowers-page .filters-bar {
+    flex-wrap: wrap;
+  }
+
+  /* Force the flower grid to 1 column on mobile */
+  .flowers-page .flowers-grid,
+  .flowers-page .flower-grid,
+  .flowers-page .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ensure cards and images scale to container width */
+  .flowers-page .flower-card,
+  .flowers-page .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .flowers-page .flower-card img,
+  .flowers-page .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
