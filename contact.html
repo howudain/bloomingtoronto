@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Blooming Toronto</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .skip-link{position:absolute;top:-40px;left:12px;padding:10px 12px;background:#1f3020;color:#fff;border-radius:10px;text-decoration:none;z-index:99999}
+    .skip-link:focus{top:12px}
+
+    .info-card{
+      margin-top: 18px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    }
+    .info-card__title{
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6f665d;
+    }
+    .pill{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      border-radius:999px;
+      padding:10px 12px 10px 14px;
+      border: 1px solid rgba(47,90,51,0.35);
+      background: rgba(255,255,255,0.65);
+    }
+    .pill a{color:#2f5a33;text-decoration:none;font-weight:700}
+    .pill a:hover{text-decoration:underline;text-underline-offset:3px}
+    .pill button{
+      border:none;cursor:pointer;
+      padding:8px 12px;border-radius:999px;
+      background:#1f3020;color:#fff;font-weight:700;
+    }
+    .pill button:hover{opacity:.92}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .actions a{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid #2f5a33;
+      text-decoration:none;
+      font-size:0.9rem;
+      background:transparent;
+      color:#2f5a33;
+      font-weight:700;
+    }
+    .actions a:hover{background-color: rgba(47,90,51,0.06)}
+    .muted{color:#6f665d;line-height:1.7}
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
+        <img src="imgs/BloomingToronto.png" alt="Blooming Toronto logo" class="site-logo__img">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="page">
+    <div class="layout-wrapper">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><span>Contact Us</span></li>
+        </ol>
+      </nav>
+
+      <header>
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">For questions, feedback, or support, please email us.</p>
+      </header>
+
+      <section class="info-card" aria-label="Contact email">
+        <p class="info-card__title">Email</p>
+        <div class="pill" role="group" aria-label="Email address">
+          <a href="mailto:dain.jung@ocadu.ca?subject=Blooming%20Toronto%20Contact">dain.jung@ocadu.ca</a>
+          <button type="button" id="copyEmailBtn">Copy</button>
+        </div>
+
+        <div class="actions" aria-label="Quick actions">
+          <a href="mailto:dain.jung@ocadu.ca?subject=Blooming%20Toronto%20Inquiry">Open email</a>
+          <a href="index.html">Back to Home</a>
+        </div>
+
+        <p class="muted" id="copyStatus" style="margin-top:10px"></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="imgs/BloomingToronto.png" alt="bloomingToronto-logo" class="logo-image">
+      </div>
+      <nav class="footer-nav">
+        <ul class="footer-col">
+          <li class="footer-col-title">Explore</li>
+          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="map.html">Bloom Map</a></li>
+          <li><a href="companion-garden.html">Companion Garden</a></li>
+        </ul>
+        <ul class="footer-col">
+          <li class="footer-col-title">General</li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('copyEmailBtn');
+      const status = document.getElementById('copyStatus');
+      const email = 'dain.jung@ocadu.ca';
+
+      btn.addEventListener('click', async () => {
+        try{
+          await navigator.clipboard.writeText(email);
+          status.textContent = 'Copied to clipboard.';
+        }catch(e){
+          status.textContent = 'Copy failed. Please copy manually: ' + email;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
