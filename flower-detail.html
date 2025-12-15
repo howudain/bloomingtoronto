@@ -1,144 +1,174 @@
 <!DOCTYPE html>
+<!-- HTML5 document -->
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Flower Detail</title>
-  <link rel="stylesheet" href="style.css" />
+  <head>
+    <!-- Character encoding -->
+    <meta charset="utf-8" />
 
-  <script src="flowers-data.js" defer></script>
-  <script src="flower-detail.js" defer></script>
-</head>
+    <!-- Responsive viewport so mobile scaling works properly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
-        <img src="imgs/BloomingToronto.png" alt="Blooming Toronto logo" class="site-logo__img">
-      </a>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="flowers.html">Flowers</a></li>
-          <li><a href="map.html">Bloom Map</a></li>
-          <li><a href="companion-garden.html">Companion Garden</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Browser tab title -->
+    <title>Flower Detail</title>
 
-  <main class="flower-detail-page">
-    <div class="layout-wrapper">
-      <p class="breadcrumb" id="breadcrumb"></p>
-      <div class="flower-filter-bar">
+    <!-- Main stylesheet for the whole site -->
+    <link rel="stylesheet" href="style.css" />
 
-        <!-- <div class="filter-chip">
-          Flowers ▾
-          <ul class="filter-menu">
-            <li><a href="flower-detail.html?name=rose">Roses</a></li>
-            <li><a href="flower-detail.html?name=lily">Lilies</a></li>
-            <li><a href="flower-detail.html?name=sunflower">Sunflowers</a></li>
-            <li><a href="flower-detail.html?name=orchid">Orchids</a></li>
+    <!-- connecting logic for flower-detail page -->
+    <script src="flower-detail.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Fixed header bar at the top -->
+    <header class="site-header">
+      <div class="header-inner">
+        <!-- Logo link back to home -->
+        <a href="index.html" class="site-logo" aria-label="Blooming Toronto Home">
+          <img
+            src="imgs/BloomingToronto.png"
+            alt="Blooming Toronto logo"
+            class="site-logo__img"
+          />
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav">
+          <ul>
+            <li><a href="flowers.html">Flowers</a></li>
+            <li><a href="map.html">Bloom Map</a></li>
+            <li><a href="companion-garden.html">Companion Garden</a></li>
           </ul>
-        </div> -->
-      
-        <div class="filter-chip">
-          Meanings ▾
-          <ul class="filter-menu">
-            <li><a href="#">Romance</a></li>
-            <li><a href="#">Friendship</a></li>
-            <li><a href="#">Remembrance</a></li>
-          </ul>
-        </div>
-      
-        <div class="filter-chip">
-          Seasons ▾
-          <ul class="filter-menu">
-            <li><a href="#">Spring</a></li>
-            <li><a href="#">Summer</a></li>
-            <li><a href="#">Fall</a></li>
-            <li><a href="#">Winter</a></li>
-          </ul>
-        </div>
-      
-        <div class="filter-chip">
-          Colours ▾
-          <ul class="filter-menu">
-            <li><a href="#">Red</a></li>
-            <li><a href="#">Pink</a></li>
-            <li><a href="#">Yellow</a></li>
-            <li><a href="#">White</a></li>
-          </ul>
-        </div>
-      
-        <div class="filter-chip">
-          Use/Purpose ▾
-          <ul class="filter-menu">
-            <li><a href="#">Gift</a></li>
-            <li><a href="#">Wedding</a></li>
-            <li><a href="#">Garden</a></li>
-          </ul>
-        </div>
-      
-        <div class="filter-chip">
-          Difficulty ▾
-          <ul class="filter-menu">
-            <li><a href="#">Easy</a></li>
-            <li><a href="#">Medium</a></li>
-            <li><a href="#">Hard</a></li>
-          </ul>
-        </div>
-      
+        </nav>
       </div>
-      <section class="flower-hero">
-        <div class="flower-hero-image">
-          <img id="flower-image" src="" alt="">
-        </div>
+    </header>
 
-        <div class="flower-hero-content">
-          <h2 id="flower-name"></h2>
+    <!-- Main content area for this page -->
+    <main class="flower-detail-page">
+      <div class="layout-wrapper">
+        <!-- Breadcrumb text gets injected by JS -->
+        <p class="breadcrumb" id="breadcrumb"></p>
 
-          <p><strong>Symbolism:</strong></p>
-          <ul id="symbolism-list"></ul>
+        <!-- Filter chip bar -dropdown -->
+        <div class="flower-filter-bar">
 
-          <p><strong>Season:</strong> <span id="season"></span></p>
-          <p><strong>Pet Safety:</strong> <span id="pet-safety"></span></p>
-          <p><strong>Scent:</strong> <span id="scent"></span></p>
-          <p><strong>Colour Palette:</strong> <span id="palette"></span></p>
-          <p><strong>Growing Tips:</strong> <span id="growing-tips"></span></p>
-        </div>
-      </section>
-
-      <section class="suggested-section">
-        <h3>Suggested flowers</h3>
-        <div class="suggested-grid" id="suggested-container"></div>
-      </section>
-    </div>
-  </main>
-
-    
-    <footer class="site-footer">
-        <div class="footer-inner">
-          <div class="footer-brand">
-            <img src="imgs/BloomingToronto.png" alt="bloomingToronto-logo" class="logo-image">
-          </div>
-    
-          <nav class="footer-nav">
-            <!-- first column -->
-              <ul class="footer-col">
-                <li class="footer-col-title">Explore</li>
-                <li><a href="flowers.html">Flowers</a></li>
-                <li><a href="map.html">Bloom Map</a></li>
-                <li><a href="companion-garden.html">Companion Garden</a></li>
-              </ul>
-            <!-- second column -->
-            <ul class="footer-col">
-              <li class="footer-col-title">General</li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+          <!-- Meanings filter chip -->
+          <div class="filter-chip">
+            Meanings ▾
+            <ul class="filter-menu">
+              <li>Romance</li>
+              <li>>Friendship</li>
+              <li>Remembrance</li>
             </ul>
-          </nav>
-        </div>
-      </footer>
+          </div>
 
+          <!-- Seasons filter chip -->
+          <div class="filter-chip">
+            Seasons ▾
+            <ul class="filter-menu">
+              <li>Spring</li>
+              <li>Summer</li>
+              <li>Fall</li>
+              <li>Winter</li>
+            </ul>
+          </div>
+
+          <!-- Colours filter chip -->
+          <div class="filter-chip">
+            Colours ▾
+            <ul class="filter-menu">
+              <li>Red</li>
+              <li>Pink</li>
+              <li>Yellow</li>
+              <li>White</li>
+            </ul>
+          </div>
+
+          <!-- Use/Purpose filter chip -->
+          <div class="filter-chip">
+            Use/Purpose ▾
+            <ul class="filter-menu">
+              <li>Gift</li>
+              <li>>Wedding</li>
+              <li>>Garden</li>
+            </ul>
+          </div>
+
+          <!-- Difficulty filter chip -->
+          <div class="filter-chip">
+            Difficulty ▾
+            <ul class="filter-menu">
+              <li><a href="#">Easy</li>
+              <li>Medium</li>
+              <li>Hard</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Hero section: big image + the main info content -->
+        <section class="flower-hero">
+          <!-- Image container -->
+          <div class="flower-hero-image">
+            <!-- JS will set src/alt based on which flower is selected -->
+            <img id="flower-image" src="" alt="" />
+          </div>
+
+          <!-- Text content container -->
+          <div class="flower-hero-content">
+            <!-- JS injects the flower name -->
+            <h2 id="flower-name"></h2>
+
+            <!-- Symbolism list -->
+            <p><strong>Symbolism:</strong></p>
+            <ul id="symbolism-list"></ul>
+
+            <!-- These spans are placeholders JS fills in -->
+            <p><strong>Season:</strong> <span id="season"></span></p>
+            <p><strong>Pet Safety:</strong> <span id="pet-safety"></span></p>
+            <p><strong>Scent:</strong> <span id="scent"></span></p>
+            <p><strong>Colour Palette:</strong> <span id="palette"></span></p>
+            <p><strong>Growing Tips:</strong> <span id="growing-tips"></span></p>
+          </div>
+        </section>
+
+        <!-- Suggested section- related flowers cards -->
+        <section class="suggested-section">
+          <h3>Suggested flowers</h3>
+          <!-- JS will create the suggested cards inside this container -->
+          <div class="suggested-grid" id="suggested-container"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <!-- Footer brand/logo -->
+        <div class="footer-brand">
+          <img
+            src="imgs/BloomingToronto.png"
+            alt="bloomingToronto-logo"
+            class="logo-image"
+          />
+        </div>
+
+        <!-- Footer nav links -->
+        <nav class="footer-nav">
+          <!-- first column -->
+          <ul class="footer-col">
+            <li class="footer-col-title">Explore</li>
+            <li><a href="flowers.html">Flowers</a></li>
+            <li><a href="map.html">Bloom Map</a></li>
+            <li><a href="companion-garden.html">Companion Garden</a></li>
+          </ul>
+
+          <!-- second column-->
+          <ul class="footer-col">
+            <li class="footer-col-title">General</li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </body>
-  </html>
+</html>

@@ -1,6 +1,5 @@
 // setting flowers dropdown filters, click to open dropdown
-// show selected value on chip
-// filter gallery items based on selection
+// show selected value on chip, filter gallery items based on selection
 
 // all filter chips (Meanings, Seasons, Colours, etc.)
 const chips = document.querySelectorAll(".flower-filter-bar .filter-chip");

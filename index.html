@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +23,7 @@
           <!-- below is the main navigation menu -->
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="flowers.html">Flowers</a></li>
+          <li><a href="flowers.html" class="active">Flowers</a></li> 
           <li><a href="map.html">Bloom Map</a></li>
           <li><a href="companion-garden.html">Companion Garden</a></li>
         </ul>
@@ -30,24 +31,25 @@
     </div>
   </header>
 
-<!-- below is my hero section -->
-  <section class="hero">
-    <!-- below is the large background / hero image -->
-    <img src="imgs/IMG_0571.jpg" />
-  <!-- main site title shown on top of hero image -->
-    <h1 class="hero-title">
-      <span class="line1">BLOOMING</span>
-      <span class="line2">TORONTO</span>
-    </h1>
-  </section>
+
 
     <div class="intro">
 
 <!-- below is my main section -->
   <main>
+
+    <!-- below is my hero section -->
+    <section class="hero">
+      <img class="hero-bg" src="imgs/IMG_0571.jpg" alt="Hero background" />
+      <div class="hero-title">
+        <img src="imgs/BloomingToronto2.png" class="hero-logo" alt="Blooming Toronto" />
+      </div>
+    </section>
+    
   <!-- below is the featured flowers section-->
     <section class="featured-flowers" id="featuredflowers">
         <div class="featured-flowers-media">
+        <!-- photo by dain (me) -->
             <img src="imgs/IMG_0578.jpg" />
         </div>
         <!--  below is the text content for featured flowers -->
@@ -67,6 +69,7 @@
     <section class="bloommap" id="bloom-map">
         <!-- below is the map preview image -->
         <div class="bloom-map-media">
+        <!-- photo by dain (me) -->
           <img src="imgs/mappg.png" alt="Map of Toronto with bloom spots"/>
         </div>
         <!-- text content for bloom map -->
@@ -78,24 +81,26 @@
           <p><a class="button" href="map.html">Open Bloom Map</a></p>
         </div>
       </section>
-
-      <section class="bloommap" id="companion-garden">
-        <div class="bloom-map-media">
-          <img src="imgs/IMG_0567.jpg" alt="Companion garden flower cards preview" />
+<!-- below is the companion garden section -->
+      <section class="companiongarden" id="companion-garden">
+        <!-- below is the preview image -->
+        <div class="companiongarden-media">
+        <!-- photo by dain (me) -->
+          <img src="imgs/IMG_0567.jpg"  alt="Companion garden flower cards preview" />
         </div>
-  
-        <div class="bloom-map-content">
+        <!-- text content for companion garden-->
+        <div class="companiongarden-content">
           <h2 id="companion-garden-title">Try Companion Planting</h2>
+          <!-- short explanation of the companion garden feature -->
           <p>
             Pick up to four flowers to see compatibility and simple companion suggestions for planters or garden beds.
           </p>
+          <!-- button that leads to the companion garden page -->
           <p><a class="button" href="companion-garden.html">Open Companion Garden</a></p>
         </div>
       </section>
     </main>
   </div>
-</div>
-  </main>
 
   <!-- below is the footer section -->
   <footer class="site-footer" role="contentinfo">

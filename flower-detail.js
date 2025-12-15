@@ -84,7 +84,7 @@ links.forEach(a => {
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name") || "doubleTulip"; // fallback if no name is provided
 
-// setting main flower datas, each represents one flower profile
+// adding main flower datas, each represents one flower profile
 const FLOWERS = {
   doubleTulip: {
     displayName: "Double Tulip",

@@ -1,13 +1,15 @@
-// 1) Map init
+// Map init- set Toronto as the default center point
 const toronto = [43.65107, -79.347015];
-const map = L.map("bloom-map").setView(toronto, 11);
 
+// Create the Leaflet map inside the element with id="bloom-map"
+const map = L.map("bloom-map").setView(toronto, 11);
+// Add OpenStreetMap tiles as the background map layer
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: "&copy; OpenStreetMap contributors",
+  maxZoom: 19,// maxZoom controls how far users can zoom in
+  attribution: "&copy; OpenStreetMap contributors",// attribution shows credit text on the map
 }).addTo(map);
 
-// 2) Data 
+// adding datas where each object is one spot that will become one map marker
 const flowerSpots = [
   {
     id: "highpark-cherry",
@@ -18,7 +20,7 @@ const flowerSpots = [
     seasons: ["spring"],
     region: "etobicoke",
     description: "Late April to early May.",
-    markerImage: "imgs/cherryblossom.png", // add png file 
+    markerImage: "imgs/cherryblossom.png", // icon image path Reference: Stockadobe
   },
   {
   id: "highpark-phlox",
@@ -29,7 +31,7 @@ const flowerSpots = [
   seasons: ["spring", "early summer"],
   region: "etobicoke",
   description: "Late spring to early summer, commonly found along garden beds and naturalized areas of High Park.",
-  markerImage: "imgs/phlox.png",
+  markerImage: "imgs/phlox.png",// icon image path Reference: Stockadobe
   },
   {
     id: "trinity-cherry",
@@ -39,8 +41,8 @@ const flowerSpots = [
     colours: ["pink", "white"],
     seasons: ["spring"],
     region: "downtown",
-    description: "Small clusters of cherry blossoms bloom briefly in spring.",
-    markerImage: "imgs/cherryblossom.png",
+    description: "Late spring to early summer to spring.",
+    markerImage: "imgs/cherryblossom.png",// icon image path Reference: Stockadobe
   },
   {
     id: "tbg-phlox",
@@ -51,7 +53,7 @@ const flowerSpots = [
     seasons: ["spring", "early summer"],
     region: "midtown",
     description: "Common in perennial beds during late spring.",
-    markerImage: "imgs/phlox.png",
+    markerImage: "imgs/phlox.png",// icon image path Reference: Stockadobe
   },
   {
     id: "sunnybrook-phlox",
@@ -62,7 +64,7 @@ const flowerSpots = [
     seasons: ["spring", "early summer"],
     region: "midtown",
     description: "Perennial beds and naturalized edges in late spring.",
-    markerImage: "imgs/phlox.png",
+    markerImage: "imgs/phlox.png",// icon image path Reference: Stockadobe
   },
   {
     id: "edwards-azaleas",
@@ -73,7 +75,7 @@ const flowerSpots = [
     seasons: ["spring"],
     region: "midtown",
     description: "Azaleas bloom in late spring and are commonly found in shaded garden areas of Edwards Gardens.",
-    markerImage: "imgs/azaleas.png",
+    markerImage: "imgs/azaleas.png",// icon image path Reference: Stockadobe
   },
   {
     id: "guild-azaleas",
@@ -84,7 +86,7 @@ const flowerSpots = [
     seasons: ["spring"],
     region: "midtown",
     description: "Decorative azaleas bloom throughout formal garden areas.",
-    markerImage: "imgs/azaleas.png",
+    markerImage: "imgs/azaleas.png",// icon image path Reference: Stockadobe
   },
   {
     id: "highpark-tulips",
@@ -106,7 +108,7 @@ const flowerSpots = [
     seasons: ["spring"],
     region: "downtown",
     description: "Tulips bloom across formal beds in early spring.",
-    markerImage: "imgs/tulip.png",
+    markerImage: "imgs/tulip.png",// icon image path Reference: Stockadobe
   },
   {
     id: "city-pansy",
@@ -117,7 +119,7 @@ const flowerSpots = [
     seasons: ["spring", "fall"],
     region: "downtown",
     description: "Pansies are commonly planted in city planters and park beds across downtown Toronto.",
-    markerImage: "imgs/pansy.png",
+    markerImage: "imgs/pansy.png",// icon image path Reference: Stockadobe
   },
   {
     id: "tommy-thompson-asters",
@@ -128,7 +130,7 @@ const flowerSpots = [
     seasons: ["fall"],
     region: "etobicoke",
     description: "Native asters bloom in late summer to fall throughout the meadows of Tommy Thompson Park.",
-    markerImage: "imgs/asters.png",
+    markerImage: "imgs/asters.png",// icon image path Reference: Stockadobe
   },
   {
     id: "donvalley-aster",
@@ -139,7 +141,7 @@ const flowerSpots = [
     seasons: ["fall"],
     region: "east",
     description: "Wild asters line trails during early fall.",
-    markerImage: "imgs/asters.png",
+    markerImage: "imgs/asters.png",// icon image path Reference: Stockadobe
   },
   {
     id: "florist-oxypetalum",
@@ -150,7 +152,7 @@ const flowerSpots = [
     seasons: ["year-round"],
     region: "downtown",
     description: "Oxypetalum is not grown outdoors in Toronto and is mainly seen as a cut flower in local florists.",
-    markerImage: "imgs/oxypetalum.png",
+    markerImage: "imgs/oxypetalum.png",// icon image path Reference: Stockadobe
   },
   {
     id: "florist-lisianthus",
@@ -161,7 +163,7 @@ const flowerSpots = [
     seasons: ["year-round"],
     region: "downtown",
     description: "Lisianthus is commonly sold as a cut flower in Toronto florists but does not grow outdoors locally.",
-    markerImage: "imgs/lisianthus.png",
+    markerImage: "imgs/lisianthus.png",// icon image path Reference: Stockadobe
   },
   {
     id: "queenspark-roses",
@@ -172,7 +174,7 @@ const flowerSpots = [
     seasons: ["summer"],
     region: "downtown",
     description: "Formal rose beds bloom from early summer through early fall.",
-    markerImage: "imgs/rose.png",
+    markerImage: "imgs/rose.png",// icon image path Reference: Stockadobe
   },
   {
     id: "edwards-roses",
@@ -183,7 +185,7 @@ const flowerSpots = [
     seasons: ["summer"],
     region: "midtown",
     description: "Well-maintained rose beds with continuous summer blooms.",
-    markerImage: "imgs/rose.png",
+    markerImage: "imgs/rose.png",// icon image path Reference: Stockadobe
   },
   {
     id: "highpark-roses",
@@ -194,11 +196,11 @@ const flowerSpots = [
     seasons: ["summer"],
     region: "etobicoke",
     description: "Landscape roses planted in formal beds and pathways.",
-    markerImage: "imgs/rose.png",
+    markerImage: "imgs/rose.png",// icon image path Reference: Stockadobe
   }
 ];
 
-// 3) Filter state (각 그룹 1개만 선택되는 구조)
+// Filter state- one selected value per category
 const selected = {
   flower: null,
   colour: null,
@@ -206,18 +208,18 @@ const selected = {
   region: null,
 };
 
-// ✅ 3.5) 커스텀 “꽃 사진 마커” 아이콘 생성 함수
+// Create a custom Leaflet icon from an image URL       Reference: ChatGPT
 function flowerIcon(imgUrl) {
   return L.icon({
     iconUrl: imgUrl,
-    iconSize: [44, 44],     // ✅ 작게 (원하면 36,36 or 50,50)
-    iconAnchor: [22, 22],   // ✅ 사진 중앙이 좌표에 오도록
-    popupAnchor: [0, -22],  // ✅ 팝업이 위로 뜨게
+    iconSize: [44, 44],     
+    iconAnchor: [22, 22],   
+    popupAnchor: [0, -22],  
     className: "flower-photo-marker",
   });
 }
 
-// 4) Markers: 처음에 전부 만들어두기 (✅ 파란 마커 → 사진 마커)
+// Pre-build all markers once so filtering is just add/remove layers
 const markers = flowerSpots.map((spot) => {
   const marker = L.marker(spot.coords, {
     icon: flowerIcon(spot.markerImage || "imgs/IMG_0566.jpg"),
@@ -225,6 +227,7 @@ const markers = flowerSpots.map((spot) => {
 
   marker.spotData = spot;
 
+  // Bind popup HTML so clicking marker shows details and a preview image
   marker.bindPopup(
     `<strong>${spot.name}</strong><br/>
      <img src="${spot.markerImage || ""}" alt=""
@@ -234,12 +237,12 @@ const markers = flowerSpots.map((spot) => {
      Region: ${spot.region}<br/>
      <small>${spot.description}</small>`
   );
-
+  // Add marker to map initially
   marker.addTo(map);
   return marker;
 });
 
-// 5) 필터 매칭
+// Decide if a spot matches the current selected filter state
 function matches(spot) {
   if (
     selected.flower &&
@@ -255,7 +258,7 @@ function matches(spot) {
   return true;
 }
 
-// 6) 마커 갱신 (add/remove)
+// Update which markers are visible based on the filters
 function updateMarkers() {
   const visibleMarkers = [];
 
@@ -279,7 +282,9 @@ function updateMarkers() {
   }
 }
 
-// 7) 칩 클릭 이벤트
+// Chip click logic -  
+// read which filter group it belongs to
+// toggle chip on/off, store selected value and refresh markers        Reference: chatGPT
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
     const type = chip.dataset.filterType;

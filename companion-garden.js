@@ -1,18 +1,18 @@
-// =======================
-// Flower dataset
-// =======================
+
+// setting lower dataset - main data source for the Companion Garden
+// Each object represents one flower that can be selected by the user
 
 const flowers = [
   {
-    id: "double-tulip",
-    image: "imgs/IMG_0566.jpg",
-    name: "Double Tulip",
-    color: "pink, yellow",
-    season: "Spring",
+    id: "double-tulip",            // identifier used internally
+    image: "imgs/IMG_0566.jpg",    // image shown on cards and panels
+    name: "Double Tulip",          // display name
+    color: "pink, yellow",         // used for search and display
+    season: "Spring",              // growing and blooming season
     description: "Layered tulip with peony-like petals. Common in spring city planters.",
-    toxicity: "Toxic to cats and dogs",
+    toxicity: "Toxic to cats and dogs", // pet safety note
     bestFor: "City planters, garden beds",
-    companions: ["pansy", "hyacinth"]
+    companions: ["pansy", "hyacinth"]   // logical companion suggestions
   },
   {
     id: "pansy-purple",
@@ -28,19 +28,17 @@ const flowers = [
   {
     id: "white-azalea",
     image: "imgs/IMG_0568.jpg",
-
-  name: "Azalea",
-  color: "white",
-  season: "Spring",
-  description: "Ornamental flowering shrub with dense spring blooms.",
-  toxicity: "Highly toxic to cats and dogs",
-  bestFor: "Garden landscapes, park shrubs",
-  companions: ["hosta", "fern"]
+    name: "Azalea",
+    color: "white",
+    season: "Spring",
+    description: "Ornamental flowering shrub with dense spring blooms.",
+    toxicity: "Highly toxic to cats and dogs",
+    bestFor: "Garden landscapes, park shrubs",
+    companions: ["hosta", "fern"]
   },
   {
     id: "blue-star-flower",
     image: "imgs/IMG_0569.jpg",
-
     name: "Oxypetalum",
     color: "blue",
     season: "Late Spring, Summer",
@@ -52,7 +50,6 @@ const flowers = [
   {
     id: "pansy-light",
     image: "imgs/IMG_0571.jpg",
-
     name: "Pansy",
     color: "white, purple",
     season: "Spring, Fall",
@@ -64,7 +61,6 @@ const flowers = [
   {
     id: "lisianthus-purple",
     image: "imgs/IMG_0572.jpg",
-
     name: "Lisianthus",
     color: "purple",
     season: "Summer",
@@ -76,7 +72,6 @@ const flowers = [
   {
     id: "aster-purple",
     image: "imgs/IMG_0575.jpg",
-
     name: "Aster",
     color: "purple",
     season: "Late Summer, Fall",
@@ -88,7 +83,6 @@ const flowers = [
   {
     id: "white-phlox",
     image: "imgs/IMG_0576.jpg",
-
     name: "Phlox",
     color: "white",
     season: "Summer",
@@ -100,7 +94,6 @@ const flowers = [
   {
     id: "coreopsis-yellow",
     image: "imgs/IMG_0577.jpg",
-
     name: "Coreopsis",
     color: "yellow",
     season: "Summer",
@@ -112,7 +105,6 @@ const flowers = [
   {
     id: "rose-light",
     image: "imgs/IMG_0578.jpg",
-  
     name: "Rose",
     color: "pink, red",
     season: "Summer",
@@ -123,7 +115,9 @@ const flowers = [
   }
 ];
 
-// compatibility matrix (optional)
+
+// Optional numeric compatibility scores between specific flower pairs.
+// If no explicit score exists, a default mid-range value is used.
 const compatibilityMatrix = {
   calendula: { nasturtium: 80, chrysanthemum: 75, tulip: 70, daisy: 85 },
   nasturtium: { calendula: 80, tulip: 65, daisy: 78 },
@@ -132,9 +126,8 @@ const compatibilityMatrix = {
   daisy: { calendula: 85, nasturtium: 78 },
 };
 
-// DOM references
+// Cache frequently used DOM elements for performance and clarity.
 const panel = document.querySelector(".companion-panel");
-
 
 const flowerListEl = document.getElementById("flowerList");
 const selectedStripEl = document.getElementById("selectedStrip");
@@ -150,18 +143,16 @@ const searchInputEl = document.getElementById("flowerSearch");
 const clearSearchBtnEl = document.getElementById("clearSearch");
 const noResultsEl = document.getElementById("noResults");
 
-// State
+// selectedIds keeps track of currently selected flowers (max 4).
+// filteredFlowers is the current list after search filtering.
+let selectedIds = [];
+let filteredFlowers = [...flowers];
 
-let selectedIds = [];         
-let filteredFlowers = [...flowers]; 
-
-// Rendering helpers
-
-// 아래 카드 리스트 (Select flowers)
-
+// Render the main selectable flower list based on current filters
 function renderFlowerList() {
   flowerListEl.innerHTML = "";
 
+  // Show "no results" message if search returns nothing
   if (filteredFlowers.length === 0) {
     noResultsEl.hidden = false;
     return;
@@ -172,13 +163,16 @@ function renderFlowerList() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "flower-card";
+
+    // Visually mark selected flowers
     if (selectedIds.includes(flower.id)) {
       button.classList.add("flower-card--selected");
     }
 
+    // Card content injected via template
     button.innerHTML = `
-    <div class="flower-card__thumb" aria-hidden="true"
-    style="background-image:url('${flower.image}')"></div>
+      <div class="flower-card__thumb" aria-hidden="true"
+           style="background-image:url('${flower.image}')"></div>
       <div class="flower-card__season">${flower.season}</div>
       <div class="flower-card__name">${flower.name}</div>
       <div class="flower-card__meta">
@@ -187,12 +181,13 @@ function renderFlowerList() {
       </div>
     `;
 
+    // Toggle selection on click
     button.addEventListener("click", () => toggleSelection(flower.id));
     flowerListEl.appendChild(button);
   });
 }
 
-// 중간 스트립 (Companion group)
+// Companion group strip - shows all selected flowers as a horizontal summary
 function renderSelectedStrip() {
   selectedStripEl.innerHTML = "";
   if (selectedIds.length === 0) return;
@@ -204,9 +199,8 @@ function renderSelectedStrip() {
     const card = document.createElement("div");
     card.className = "mini-card";
     card.innerHTML = `
-    <div class="mini-card__thumb" aria-hidden="true"
-    style="background-image:url('${f.image}')"></div>
-
+      <div class="mini-card__thumb" aria-hidden="true"
+           style="background-image:url('${f.image}')"></div>
       <div class="mini-card__name">${f.name}</div>
       <div class="mini-card__meta">${f.season} • ${f.color}</div>
     `;
@@ -214,8 +208,9 @@ function renderSelectedStrip() {
   });
 }
 
-// 상단 큰 패널
+// Top main panel - Displays the primary selected flower and its companions
 function renderPanel() {
+  // Empty state
   if (selectedIds.length === 0) {
     panelSelectedEl.hidden = true;
     compatibilityLabelEl.textContent = "";
@@ -226,26 +221,24 @@ function renderPanel() {
 
   panelSelectedEl.hidden = false;
 
+  // First selected flower is treated as the main one
   const mainId = selectedIds[0];
   const mainFlower = flowers.find((f) => f.id === mainId);
 
-  // 메인 카드
+  // Main flower card
   mainCardEl.innerHTML = `
-  <article class="mini-card">
-    <div class="mini-card__thumb"
-         style="background-image:url('${mainFlower.image}')"
-         aria-hidden="true"></div>
+    <article class="mini-card">
+      <div class="mini-card__thumb"
+           style="background-image:url('${mainFlower.image}')"
+           aria-hidden="true"></div>
+      <div class="mini-card__name">${mainFlower.name}</div>
+      <div class="mini-card__meta">${mainFlower.season} • ${mainFlower.color}</div>
+      <div class="mini-card__desc">${mainFlower.description}</div>
+      <div class="mini-card__tox"><strong>${mainFlower.toxicity}</strong></div>
+    </article>
+  `;
 
-    <div class="mini-card__name">${mainFlower.name}</div>
-    <div class="mini-card__meta">${mainFlower.season} • ${mainFlower.color}</div>
-    <div class="mini-card__desc">${mainFlower.description}</div>
-    <div class="mini-card__tox"><strong>${mainFlower.toxicity}</strong></div>
-  </article>
-`;
-
-
-
-  // 패널 안의 companions (선택된 나머지)
+  // Render companion cards (remaining selections)
   panelCompanionsEl.innerHTML = "";
   const companionIds = selectedIds.slice(1);
 
@@ -256,9 +249,8 @@ function renderPanel() {
     const card = document.createElement("article");
     card.className = "mini-card";
     card.innerHTML = `
-    <div class="mini-card__thumb" aria-hidden="true"
-    style="background-image:url('${f.image}')"></div>
-
+      <div class="mini-card__thumb" aria-hidden="true"
+           style="background-image:url('${f.image}')"></div>
       <div class="mini-card__name">${f.name}</div>
       <div class="mini-card__meta">
         ${f.season} • ${f.color}<br />
@@ -268,20 +260,21 @@ function renderPanel() {
     panelCompanionsEl.appendChild(card);
   });
 
-  // compatibility 표시
+  // Calculate and display compatibility score
   const score = computeCompatibility(selectedIds);
   if (score == null) {
-    compatibilityLabelEl.textContent = "Compatibility – add at least two flowers";
+    compatibilityLabelEl.textContent =
+      "Compatibility – add at least two flowers";
   } else {
     compatibilityLabelEl.textContent = `Compatibility – ${score}%`;
   }
-  compatibilityTextEl.textContent = buildCompatibilityExplanation(selectedIds, score);
+
+  compatibilityTextEl.textContent =
+    buildCompatibilityExplanation(selectedIds, score);
 }
 
-// =======================
-// Compatibility helpers
-// =======================
 
+// Calculate average compatibility between all selected flower pairs  Reference - ChatGPT
 function computeCompatibility(ids) {
   if (ids.length < 2) return null;
 
@@ -295,7 +288,7 @@ function computeCompatibility(ids) {
 
       const row = compatibilityMatrix[a] || {};
       const revRow = compatibilityMatrix[b] || {};
-      const value = row[b] ?? revRow[a] ?? 60; // 디폴트 중간값
+      const value = row[b] ?? revRow[a] ?? 60; // default mid-range value
 
       total += value;
       count += 1;
@@ -304,6 +297,7 @@ function computeCompatibility(ids) {
   return Math.round(total / count);
 }
 
+// Generate human-readable explanation based on score   Reference - ChatGPT
 function buildCompatibilityExplanation(ids, score) {
   if (ids.length === 0) {
     return "Select flowers below to explore how they can be planted together.";
@@ -334,17 +328,17 @@ function buildCompatibilityExplanation(ids, score) {
 }
 
 
+// Selection + search logic
+// Add or remove flowers from selection (max 4)
 function toggleSelection(id) {
   const idx = selectedIds.indexOf(id);
 
   if (idx === -1) {
-    // 새로 추가
     if (selectedIds.length >= 4) {
-      selectedIds.shift(); // 최대 4개 유지
+      selectedIds.shift(); // keep max of 4 selections
     }
     selectedIds.push(id);
   } else {
-    // 이미 있으면 제거
     selectedIds.splice(idx, 1);
   }
 
@@ -353,6 +347,7 @@ function toggleSelection(id) {
   renderPanel();
 }
 
+// Filter flowers by search input
 function applySearch() {
   const q = (searchInputEl.value || "").trim().toLowerCase();
 
@@ -371,10 +366,7 @@ function applySearch() {
   renderFlowerList();
 }
 
-// =======================
-// Init
-// =======================
-
+// Initial render and event bindings
 document.addEventListener("DOMContentLoaded", () => {
   filteredFlowers = [...flowers];
   renderFlowerList();
@@ -384,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (searchInputEl) {
     searchInputEl.addEventListener("input", applySearch);
   }
+
   if (clearSearchBtnEl) {
     clearSearchBtnEl.addEventListener("click", () => {
       searchInputEl.value = "";
