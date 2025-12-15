@@ -38,9 +38,20 @@
     <div class="layout-wrapper">
       <!-- setting space for fixed header -->
       <div style="margin-top:120px;"></div>
-
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><span>Flowers</span></li>
+        </ol>
+      </nav>
+      
       <!-- page intro text -->
-      <p>Explore flowers blooming across Toronto</p>
+      <h1 class="page-title">Find What’s Blooming in Toronto</h1>
+
+      <p class="page-subtitle">Use the filters below to narrow down the flowers you’re looking for.</p>
+
+
+      
 
       <!-- below is filter bar-->
       <div class="flower-filter-bar">
@@ -70,10 +81,12 @@
         <div class="filter-chip">
           Colours ▾
           <ul class="filter-menu">
-            <li><a href="#">Red</a></li>
-            <li><a href="#">Pink</a></li>
-            <li><a href="#">Yellow</a></li>
-            <li><a href="#">White</a></li>
+            <li><a href="#" data-value="red">Red</a></li>
+            <li><a href="#" data-value="pink">Pink</a></li>
+            <li><a href="#" data-value="yellow">Yellow</a></li>
+            <li><a href="#" data-value="white">White</a></li>
+            <li><a href="#" data-value="purple">Purple</a></li>
+            <li><a href="#" data-value="blue">Blue</a></li>
           </ul>
         </div>
 
@@ -96,12 +109,18 @@
             <li><a href="#">Hard</a></li>
           </ul>
         </div>
+
+        <!-- Reset button (added) -->
+        <button type="button" id="reset-filters" class="filter-reset">
+          Reset Filters
+        </button>
       </div>
 
-      <!-- ✅ No results message (hidden by default) -->
+      <!-- No results message (hidden by default) -->
       <p id="no-results" class="no-results" role="status" aria-live="polite" hidden>
-        No results for these filters. Clear a filter or choose a different option.
+        No matching flowers for these filters. Please try different options.
       </p>
+      
 
       <!-- below is the gallery Grid -->
       <div class="gallery" aria-live="polite">

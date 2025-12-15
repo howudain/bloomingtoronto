@@ -14,6 +14,9 @@ const items = document.querySelectorAll(".gallery .item");
 // no-results message element
 const noResultsEl = document.getElementById("no-results");
 
+// Reset button element (added)
+const resetBtn = document.getElementById("reset-filters");
+
 // set hover title from image alt text (used by CSS overlay)
 items.forEach((item) => {
   const img = item.querySelector("img");
@@ -174,6 +177,39 @@ function initFromQueryParams() {
   });
 
   applyFilters();
+}
+
+// Reset all filters (added)
+function resetAllFilters() {
+  // Clear active filters
+  Object.keys(activeFilters).forEach((k) => delete activeFilters[k]);
+
+  // Reset chip labels back to original category names
+  chips.forEach((chip) => {
+    const original = chip.dataset.label || "Filter";
+    setChipLabel(chip, original);
+    chip.classList.remove("open");
+  });
+
+  // Show all items
+  items.forEach((item) => item.classList.remove("hide"));
+
+  // Hide no-results message
+  if (noResultsEl) noResultsEl.hidden = true;
+
+  // Clear URL query params (optional)
+  if (window.location.search) {
+    window.history.replaceState({}, "", window.location.pathname);
+  }
+}
+
+// Hook up reset button (added)
+if (resetBtn) {
+  resetBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    resetAllFilters();
+  });
 }
 
 initFromQueryParams();

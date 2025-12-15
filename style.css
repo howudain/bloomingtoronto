@@ -1,7 +1,6 @@
-
 /* base */
    .layout-wrapper {
-    max-width: 1120px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 24px; 
   }
@@ -9,6 +8,14 @@
     box-sizing: border-box;
   }
   
+  .page-subtitle{
+    margin: 0 0 20px;
+    font-size: 21px;
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
   body {
     margin: 0;
     font-family: system-ui, "Segoe UI", sans-serif;
@@ -227,8 +234,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: center;
-      margin-top: 150px;
-      margin-bottom: 200px;
+      margin-top: 100px;
+      margin-bottom: 100px;
   }
   
   .bloom-map-media img {
@@ -289,6 +296,7 @@
     object-fit: cover;
     display: block;
   }
+
 }
 
   /* Featured flowers section */
@@ -298,8 +306,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
-    margin-top: 150px;
-    margin-bottom: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
   
   .featured-flowers-media img {
@@ -310,7 +318,17 @@
     border-radius: 32px;
   }
   
-
+  @media (max-width: 900px) {
+    .bloommap {
+      margin-top: 70px;
+      margin-bottom: 70px;
+    }
+    .featured-flowers{
+      margin-top: 70px;
+      margin-bottom: 70px;
+    }
+  }
+  
   
   .map-page {
     max-width: 1120px;
@@ -321,17 +339,60 @@
   
   .map-page .page-title {
     font-size: 2.2rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
     margin: 0 0 8px;
   }
+
+
+  .map-page .page-subtitle{
+    margin: 0 0 5px;
+    font-size: 21px;
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  
   
   .map-page > p {
     margin: 0 0 20px;
     font-size: 0.95rem;
-    color: #4a463f;
+    color: #000000;
   }
   
+  /* Map filter labels: bold + clean */
+  .map-page .filters .filter-group{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 14px 0;
+  }
+  
+  .map-page .filters .filter-label{
+    min-width: 120px;
+    margin: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    line-height: 1.2;
+    opacity: 0.9;
+  }
+  
+  /* Make the search input line up nicely with the label */
+  .map-page .filters #flowerSearch{
+    flex: 1;
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 8px;
+  }
+  
+  /* Optional: slightly stronger chips to match the bold labels */
+  .map-page .filters .chip{
+    font-weight: 600;
+  }
+  
+
   /* filter*/
   
   .filters {
@@ -546,16 +607,19 @@
 .breadcrumb {
   font-size: 0.85rem;
   color: #6f665d;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
 }
+
+
 /*filter flower detail */ 
 
 /* Filter chip bar */
-.flower-filter-bar {
+.flower-filter-bar{
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Filter chip style */
@@ -569,6 +633,26 @@
   cursor: pointer;
   background-color: transparent;
   user-select: none;
+}
+
+.filter-reset{
+  margin-left: auto;          
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid #1f1f1f;
+  background: #1f1f1f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.filter-reset:hover{
+  opacity: 0.92;
+}
+
+.filter-reset:focus-visible{
+  outline: 3px solid rgba(31,31,31,0.35);
+  outline-offset: 2px;
 }
 
 /* Dropdown menu */
@@ -687,6 +771,21 @@
   background-position: center;
   background-repeat: no-repeat;
   
+}
+/* Companion Garden: match page title/subtitle styling */
+.companion-hero__header .page-title{
+  margin: 0 0 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: 34px;
+}
+
+.companion-hero__header .page-subtitle{
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 
@@ -1095,6 +1194,20 @@
   padding: 0 24px;
 }
 
+.page-title{
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  line-height: 1.15;
+}
+
+@media (max-width: 600px){
+  .page-title{
+    font-size: 34px;
+  }
+}
+
 .layout-wrapper {
   display: flex;
   flex-direction: column;
@@ -1161,6 +1274,19 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #6f665d;
+}
+
+
+/* Ensure hidden attribute works */
+.no-results[hidden] { display: none; }
+
+/* Make the message obvious */
+.no-results{
+  margin: 16px 0 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.18);
+  font-weight: 600;
 }
 
 /* Top big panel */
@@ -1497,6 +1623,13 @@
     border-radius: 999px;
   }
 
+  /* ✅ reset button matches chips on mobile */
+  .filter-reset {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
   .dropdown-menu a {
     font-size: 0.9rem;
     padding: 6px 10px;
@@ -1519,6 +1652,29 @@
   }
   
 }
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+
+.gallery .item {
+  position: relative;
+  aspect-ratio: 3 / 4;   
+  overflow: hidden;
+}
+
+
+.gallery .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 /* Leaflet: custom photo markers */
 .leaflet-marker-icon.flower-photo-marker {
@@ -1544,4 +1700,15 @@
   .selected-companions__grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* Prevent layout shift when scrollbar appears/disappears */
+html{
+  scrollbar-gutter: stable;
+}
+
+/* Fallback for browsers without scrollbar-gutter */
+body{
+  overflow-y: scroll;
 }
