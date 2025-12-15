@@ -346,7 +346,8 @@ main {
 
 
   .map-page .page-subtitle{
-    margin: 0 0 5px;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 21px;
     font-weight: 500;
     opacity: 0.85;
@@ -1704,6 +1705,9 @@ object-fit: cover;
 }
 }
 
+.flowers-page .page-subtitle{
+  margin-bottom: 8px; 
+}
 
 /* Prevent layout shift when scrollbar appears/disappears */
 html{
